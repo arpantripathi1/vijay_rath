@@ -1,0 +1,27 @@
+
+/* Assuming MailCard component has internal styling for individual cards */
+.contact_card {
+    margin:1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.contact_card label {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing as needed */
+  }
+
+@media (max-width: 768px) { /* Adjust breakpoint for medium screens as needed */
+    .contact_card {
+       width:100%;
+        padding: 0.8rem 0;
+        margin: 2px 0;
+    }
+
+    .contact_card h4 , p{
+        font-size: large;
+    }
+  }

@@ -1,0 +1,66 @@
+.image-text-container {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 20px;
+  }
+  
+  .image {
+    flex: 1;
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Adjust the maximum width for the image */
+  }
+  
+  .left .image {
+    order: 1;
+  }
+  
+  .left .text {
+    order: 2;
+  }
+  
+  .right .image {
+    order: -1; /* Set a higher order to ensure the image is displayed above the text */
+  }
+  
+  .right .text {
+    order: 0; /* Set the order of text to 0 to ensure it comes after the image */
+  }
+  
+  .text {
+    flex: 1;
+    /* display: flex; */
+    text-align: left;
+    max-width: 50%; /* Constrain the width of the text */
+  }
+  
+  .text h3{
+    margin-top: 0;
+  }
+
+  @media (min-width: 769px) {
+    .right .image {
+      float: right; /* Float the image to the right for screens larger than 768px */
+      order: 2; /* Ensure the image is displayed on the right */
+    }
+  }
+  @media (max-width: 768px) {
+    .image-text-container {
+      flex-direction: column;
+      align-items: center; /* Center items vertically */
+    }
+    .image, .text {
+      order: 0; /* Reset the order */
+      width: 100%; /* Make both image and text take full width */
+      max-width: none; /* Remove max-width */
+    }
+
+    .text {
+        text-align: center;
+      }
+  }
+  

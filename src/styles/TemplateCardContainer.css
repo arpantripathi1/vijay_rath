@@ -1,0 +1,7 @@
+.template-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to multiple lines */
+    justify-content: center; /* Center cards horizontally */
+    margin: 0.2rem auto; /* Center container horizontally on larger screens */
+    gap: 1.2rem; /* Spacing between cards */
+}

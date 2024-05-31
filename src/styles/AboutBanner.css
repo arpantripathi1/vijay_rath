@@ -1,0 +1,38 @@
+.about-banner {
+    background-color: #4b00ff0f; /* Set white background color */    
+    padding: 2rem; /* Add padding for content */
+    text-align: center; /* Center align content horizontally */
+  }
+  
+  .banner-text {
+    max-width: 800px; /* Set a maximum width for content container */
+    margin: 0 auto; /* Center content horizontally within the banner */
+  }
+  
+ .about-banner h1 {
+    font-size: 2rem; /* Adjust heading font size */
+    margin: 0 0 1rem 0; /* Add some margin below the heading */
+    color: #000; /* Set black text color */
+  }
+  
+  .about-banner p {
+    font-size: 1rem; /* Adjust paragraph font size */
+    line-height: 1.5; /* Adjust line height for readability */
+    color: #000; /* Set black text color */
+  }
+  
+  /* Media query for smaller screens (adjust breakpoint as needed) */
+  @media (max-width: 768px) {
+    .banner-text {
+      max-width: 100%; /* Allow content container to fill full width on smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Adjust heading font size for smaller screens */
+    }
+  
+    p {
+      font-size: 0.8rem; /* Adjust paragraph font size for smaller screens */
+    }
+  }
+  

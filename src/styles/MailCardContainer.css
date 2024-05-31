@@ -1,0 +1,41 @@
+.mail-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Distribute cards evenly */
+    margin: 2rem;
+    /* Add some margin for spacing */
+    padding: 1rem;
+    /* Add some padding for visual appeal */
+    border-radius: 5px;
+    /* Add subtle border radius for a polished look */
+    background-color: #f5f5f5;
+    /* Light background color for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow for depth */
+}
+
+.mail-card-grid {
+    width: 100%;
+    /* Ensure the grid takes up full container width */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    /* Auto-fit columns with minimum width of 300px, expanding as needed */
+    grid-gap: 1rem;
+    /* Add some spacing between cards */
+}
+
+
+@media (max-width: 768px) { /* Adjust breakpoint for medium screens as needed */
+    .mail-card-container{
+        margin:0.5rem;
+        padding:0.5rem;
+    }
+    .mail-card-grid {
+        display: flex;
+        flex-direction: column;
+       justify-content: center;
+       align-items: center;
+    }
+   
+  }
