@@ -12,28 +12,40 @@ import Services from './pages/Services';
 // import Nav from './components/Nav';
 import { useState } from 'react';
 import Template from './pages/Template';
-import SecretPage from './pages/SecretPage';
+import ProtectedPage from './pages/ProtectedPage';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
+import { AuthProvider } from './context/AuthContext';
+import PaymentForm from './pages/PaymentForm';
+import ForgotPassword from './pages/ForgotPassword';
+import JobPostings from './pages/JobPostings';
+// import Nav from './components/Nav';
+
+
 function App() {
   const [isHomePage, setIsHomePage] = useState(false);
+
   return (
     <BrowserRouter>
-      <Navbar isHomePage={isHomePage}/>
-      
-      {/* <Nav /> */}
-      <Routes>
-        <Route exact path="/" element={<Home setIsHomePage={setIsHomePage} />} />
-          <Route exact path="about" element={<About setIsHomePage={setIsHomePage} />} />
-          <Route exact path="contact" element={<Contact setIsHomePage={setIsHomePage} />} />
-          <Route exact path="services" element={<Services setIsHomePage={setIsHomePage} />} />
-          <Route exact path="templates" element={<Template setIsHomePage={setIsHomePage} />} />
-          <Route exact path="secretPage" element={<SecretPage setIsHomePage={setIsHomePage} />} />
-          <Route exact path="signup" element={<Signup setIsHomePage={setIsHomePage} />} />
-          <Route exact path="login" element={<Login setIsHomePage={setIsHomePage} />} />
-      
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <Navbar isHomePage={isHomePage} />
+          {/* <Nav /> */}
+          <Routes>
+            <Route exact path="/" element={<Home setIsHomePage={setIsHomePage} />} />
+            <Route exact path="about" element={<About setIsHomePage={setIsHomePage} />} />
+            <Route exact path="contact" element={<Contact setIsHomePage={setIsHomePage} />} />
+            <Route exact path="services" element={<Services setIsHomePage={setIsHomePage} />} />
+            <Route exact path="templates" element={<Template setIsHomePage={setIsHomePage} />} />
+            <Route exact path="ProtectedPage" element={<ProtectedPage setIsHomePage={setIsHomePage} />} />
+            <Route exact path="signup" element={<Signup setIsHomePage={setIsHomePage} />} />
+            <Route exact path="login" element={<Login setIsHomePage={setIsHomePage} />} />
+            <Route exact path="payment" element={<PaymentForm />} />
+            <Route exact path="new-password" element={<ForgotPassword />} />
+            <Route exact path="Jobs" element={<JobPostings setIsHomePage={setIsHomePage}/>} />
+
+          </Routes>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

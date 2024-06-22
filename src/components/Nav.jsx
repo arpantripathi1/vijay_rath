@@ -1,17 +1,15 @@
-
 import React , {useState} from 'react';
 import { NavLink } from 'react-router-dom' ;
 // import styled from "styled-components" ;
-import "../styles/Nav.css"
-import { FiShoppingCart } from "react-icons/fi" ;
 import { CgMenu , CgClose } from "react-icons/cg" ;
+import "../styles/Nav.css";
 
-const Nav = () => {
+const Nav = ({isHomePage}) => {
 
     const [menuIcon , setMenuIcon] = useState();
 
     return (
-        <div className={menuIcon ? "navbar active" : "navbar"}>
+        <div className={menuIcon ? "navbar active" : "navbar"}  style={{color: isHomePage ? 'white' : 'black' }}>
           <ul className="navbar-lists">
             <li>
               <NavLink
@@ -49,7 +47,12 @@ const Nav = () => {
                 Contact
               </NavLink>
             </li>
-           
+            {/* <li>
+              <NavLink to="/cart" className="navbar-links cart-trolley--link" >
+                <FiShoppingCart className="cart-trolley" />
+                <span className="cart-total--item"> 10 </span>
+              </NavLink>
+            </li> */}
           </ul>
 
           {/* two buttons for open and close the menu*/}
@@ -67,8 +70,10 @@ const Nav = () => {
             />
           </div>
         </div>
+
     );
 };
+
 
 
 export default Nav;

@@ -1,3 +1,4 @@
+// src/components/ContactForm.js
 import React, { useState } from 'react';
 import '../styles/ContactForm.css';
 
@@ -8,6 +9,10 @@ function ContactForm() {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -15,24 +20,36 @@ function ContactForm() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
+    setIsSubmitting(true);
 
-    // Implement form submission logic here
-    // You can use methods like fetch or a library like Axios to send data
-    // to a server or API.
+    try {
+      const response = await fetch('https://your-api-endpoint.com/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    console.log('Form submitted:', formData); // Example logging for development
-
-    // After successful submission, you can optionally reset the form data:
-    setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        setSuccessMessage('Your message has been sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setErrorMessage('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setErrorMessage('An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="container">
       <div className="contact-section">
         <div className="contact-info">
-          <h1>Contact Us Today</h1>
           <p>Have any questions or feedback? Reach out to us via the form below for prompt assistance.</p>
         </div>
         <div className="contact-form">
@@ -65,7 +82,10 @@ function ContactForm() {
               value={formData.message}
               onChange={handleChange}
             ></textarea>
-            <button type="submit">SEND</button>
+            <button type="submit" disabled={isSubmitting}>SEND</button>
+            {isSubmitting && <p>Sending...</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </form>
         </div>
       </div>

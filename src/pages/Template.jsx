@@ -63,17 +63,17 @@ const Template = ({ setIsHomePage }) => {
     <div>
       <PageHeader text="words increase the chances" />
       <ToggleButton leftOption="Mail-Templates" rightOption="Call-Scripts" setIsToggled={setIsToggled} isToggled={isToggled} />
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center",alignItems:"center" }} >
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center",alignItems:"center", backgroundColor: "#f5f5f5" }} >
         {isToggled ?
           <>
-            <div>
-              <h3>contact scripts:talk politely and be confident while talking</h3>
-            </div>
+       
+              <h3 style={{textAlign:"center", margin:"2rem auto"}}>contact scripts:talk politely and be confident while talking</h3>
+        
 
             <TemplateCardContainer array={callScripts} />
           </> :
           <>
-            <h3>Mail templates are here</h3>
+            <h3 style={{textAlign:"center", margin:"2rem auto"}}>Mail templates are here</h3>
             <TemplateCardContainer array={mailTemplates} />
             <hr />
             <hr />

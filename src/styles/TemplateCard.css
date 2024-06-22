@@ -1,5 +1,6 @@
 .template_card {
   display: inline-block; /* Not strictly necessary for grid layout */
+  margin: 5px 10px;
   transition: transform .2s;
   position: relative;
   border-radius: 10px;

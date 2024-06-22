@@ -17,11 +17,13 @@ function EmpoweringSuccess() {
       <div className="heading">
         <h1>Empowering Connections, Enabling Success</h1>
       </div>
-      <div className="about">
-        
-        <p>Vijay Rath was created with the aim of bridging the gap between students and recruiters, revolutionizing the job search process</p>
-        <p> Our Approach,Vijay Rath focuses on providing a secure and efficient platform for students to interact with potential employers, serving thousands of clients.</p>
-        <button className='read_more_btn' type='submit' onClick={()=> handleButtonClick()}>READ MORE</button>
+      <div className="es_sub_container">
+        <img src='/images/empowering-connections.jpeg' alt='connections-pic' />
+        <div className='es_content'>
+          <p>Vijay Rath was created with the aim of bridging the gap between students and recruiters, revolutionizing the job search process</p>
+          <p> Our Approach,Vijay Rath focuses on providing a secure and efficient platform for students to interact with potential employers, serving thousands of clients.</p>
+          <button className='read_more_btn' type='submit' onClick={handleButtonClick}>READ MORE</button>
+        </div>
       </div>
     </div>
   );

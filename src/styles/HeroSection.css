@@ -60,6 +60,13 @@
 
   .hero-content p {
     color:white;
+    padding:1rem;
+  }
+
+  .hero-heading {
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 1rem;
   }
   
   .hero-button {
@@ -79,13 +86,21 @@
   /* Media queries for responsive text size */
   @media (max-width: 768px) {
     .hero-content {
-      font-size: 3rem; /* Adjust font size for smaller screens */
+      text-align: center;
+    }
+    
+    .hero-heading{
+      font-size: 2.3rem; /* Adjust font size for smaller screens */
     }
   }
   
-  @media (max-width: 480px) {
-    .hero-content {
-      font-size: 4rem; /* Adjust font size for even smaller screens */
+  @media (max-width: 580px) {
+    
+    .hero-content{
+      text-align: center;
+    }
+    .hero-heading{
+      font-size: 1.8rem; /* Adjust font size for even smaller screens */
     }
   }
   
