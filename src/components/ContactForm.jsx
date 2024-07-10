@@ -50,7 +50,7 @@ function ContactForm() {
     <div className="container">
       <div className="contact-section">
         <div className="contact-info">
-          <p>Have any questions or feedback? Reach out to us via the form below for prompt assistance.</p>
+          <p>Have any questions or feedback? Reach out to us via the form below:</p>
         </div>
         <div className="contact-form">
           <form onSubmit={handleSubmit}>

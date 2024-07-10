@@ -19,6 +19,8 @@ import { AuthProvider } from './context/AuthContext';
 import PaymentForm from './pages/PaymentForm';
 import ForgotPassword from './pages/ForgotPassword';
 import JobPostings from './pages/JobPostings';
+import { ToastContainer } from 'react-toastify';
+import ResetPassword from './pages/ResetPassword';
 // import Nav from './components/Nav';
 
 
@@ -27,7 +29,9 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ToastContainer/>
       <AuthProvider>
+        
         <Navbar isHomePage={isHomePage} />
           {/* <Nav /> */}
           <Routes>
@@ -41,6 +45,7 @@ function App() {
             <Route exact path="login" element={<Login setIsHomePage={setIsHomePage} />} />
             <Route exact path="payment" element={<PaymentForm />} />
             <Route exact path="new-password" element={<ForgotPassword />} />
+            <Route exact path="reset-password" element={<ResetPassword />} />
             <Route exact path="Jobs" element={<JobPostings setIsHomePage={setIsHomePage}/>} />
 
           </Routes>

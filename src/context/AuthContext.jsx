@@ -1,45 +1,3 @@
-// import React, { createContext, useState, useEffect } from 'react';
-
-// const initialAuthState = {
-//   isAuthenticated: false,
-//   user: null,
-//   token: null,
-//   setError: (error) => {},
-//   setLoggedIn: (user, token) => {},
-//   logout: () => {},
-// };
-
-// const AuthContext = createContext(initialAuthState);
-
-// const AuthProvider = ({ children }) => {
-//   const [authState, setAuthState] = useState(initialAuthState);
-
-//   // Implement functions for login, logout, error handling, etc.
-//   // (These would interact with your backend API)
-
-//   useEffect(() => {
-//     // Check for existing auth state on page load
-//     const token = localStorage.getItem('auth_token');
-//     if (token) {
-//       // Fetch user data based on token (if needed)
-//       setAuthState({
-//         isAuthenticated: true,
-//         token,
-//         // ...user data
-//       });
-//     }
-//   }, []);
-
-//   return (
-//     <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>
-//   );
-// };
-
-// export { AuthContext, AuthProvider };
-
-
-
-
 // new code
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
@@ -91,8 +49,12 @@ const AuthProvider = ({ children }) => {
 
   const handleLogin = async (email, password) => {
     try {
+      console.log("login details are",email,password);
       const response = await axios.post('http://localhost:8080/login', { email, password });
+      console.log("response in login",response);
       const { token, userId } = response.data;
+      console.log("login saved details are",token,"   and   ",userId);
+
       setLoggedIn({ id: userId }, token);
       return { success: true };
     } catch (error) {
@@ -129,6 +91,7 @@ const AuthProvider = ({ children }) => {
   const handleForgotPassword = async (email) => {
     try {
       const response = await axios.post('http://localhost:8080/forgot-password', { email });
+      console.log("client forgot response is",response);
       return { success: true, message: response.data.message };
     } catch (error) {
       console.error(error);
@@ -136,10 +99,32 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const handleResetPassword = async (token, newPassword) => {
+  // const handleResetPassword = async (token, newPassword) => {
+  //   try {
+  //     const response = await axios.post('http://localhost:8080/reset-password', { token, newPassword });
+  //     return { success: true, message: response.data.message };
+  //   } catch (error) {
+  //     console.error(error);
+  //     return { success: false, message: error.response.data.message };
+  //   }
+  // };
+
+  const handleVerifyCode = async (email, code) => {
     try {
-      const response = await axios.post('http://localhost:8080/reset-password', { token, newPassword });
-      return { success: true, message: response.data.message };
+      const response = await axios.post('http://localhost:8080/verify-code', { email, code });
+      return { success: true, message: response.data };
+    } catch (error) {
+      console.error(error);
+      return { success: false, message: error.response.data.message };
+    }
+  };
+  
+  const handleResetPassword = async (email, code, newPassword) => {
+    try {
+      const response = await axios.post('http://localhost:8080/reset-password', { email, code, newPassword });
+      const { token, user } = response.data;
+      setLoggedIn(user, token);
+      return { success: true, message: response.data };
     } catch (error) {
       console.error(error);
       return { success: false, message: error.response.data.message };
@@ -147,7 +132,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ ...authState, setLoggedIn, logout, handleSignup, handleLogin, handleGoogleSignup, handleForgotPassword, handleResetPassword }}>
+    <AuthContext.Provider value={{ ...authState, setLoggedIn, logout, handleSignup, handleLogin, handleGoogleSignup, handleVerifyCode , handleForgotPassword, handleResetPassword }}>
       {children}
     </AuthContext.Provider>
   );

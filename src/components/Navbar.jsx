@@ -1,23 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import { CgMenu, CgClose } from "react-icons/cg";
+import Swal from 'sweetalert2';
 import '../styles/Nav.css';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = ({ isHomePage }) => {
   const location = useLocation();
+  const { isAuthenticated, logout } = useContext(AuthContext);
+
   const pathName = location.pathname;
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Here you can check if the user is logged in
-    // This is just a placeholder. Replace with actual login check.
-    const userLoggedIn = false; // Replace with actual check
-    setIsLoggedIn(userLoggedIn);
-  }, []);
+    setIsLoggedIn(isAuthenticated);
+  }, [isAuthenticated]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you really want to log out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout();
+        setMenuOpen(false);
+      }
+    });
   };
 
   return (
@@ -65,7 +82,6 @@ const Navbar = ({ isHomePage }) => {
               Contact
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/templates"
@@ -86,6 +102,18 @@ const Navbar = ({ isHomePage }) => {
               Secret
             </NavLink>
           </li>
+          {isLoggedIn && (
+            <li>
+              <NavLink
+                to="#"
+                className="navbar-mobile-logout-button navbar-link"
+                style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}
+                onClick={handleLogout}
+              >
+                Logout
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-actions">
@@ -100,9 +128,6 @@ const Navbar = ({ isHomePage }) => {
             </NavLink>
           )
         )}
-        {isLoggedIn && (
-          <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Logout</button>
-        )}
       </div>
       <div className="mobile-navbar-btn">
         {menuOpen ? (
@@ -111,9 +136,25 @@ const Navbar = ({ isHomePage }) => {
           <CgMenu className="mobile-nav-icon" onClick={toggleMenu} />
         )}
       </div>
+      {menuOpen && (
+        <div className="mobile-navbar-actions">
+          {!isLoggedIn ? (
+            <NavLink to='/login' onClick={toggleMenu}>
+              <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign in</button>
+            </NavLink>
+          ) : (
+            <button
+              className="navbar-button"
+              style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
-

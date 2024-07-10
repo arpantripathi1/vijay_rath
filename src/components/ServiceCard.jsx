@@ -1,19 +1,3 @@
-// import React from 'react';
-// // import "../styles/ServiceCard.css";
-
-// const ServiceCard = ({ sNo, content, imageUrl, imageFloat }) => {
-//   return (
-//     <div className='service_card'>
-//       <img src={imageUrl} alt="N?A" style={{ float: { imageFloat } }} />
-//       <p>{sNo}</p>
-//       <p>{content}</p>
-//     </div>
-//   )
-// }
-
-// export default ServiceCard;
-
-
 
 import React from 'react';
 // import PropTypes from 'prop-types';
