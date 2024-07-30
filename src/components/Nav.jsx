@@ -1,79 +1,267 @@
-import React , {useState} from 'react';
-import { NavLink } from 'react-router-dom' ;
-// import styled from "styled-components" ;
-import { CgMenu , CgClose } from "react-icons/cg" ;
-import "../styles/Nav.css";
+// import React, { useState, useEffect , useContext} from 'react';
+// import { NavLink, useLocation } from "react-router-dom";
+// import { CgMenu, CgClose } from "react-icons/cg";
+// import '../styles/Nav.css';
+// import { AuthContext } from '../context/AuthContext'; // Adjust the path as needed
 
-const Nav = ({isHomePage}) => {
+// const Nav = ({ isHomePage }) => {
+//   const location = useLocation();
+//   const pathName = location.pathname;
+//   const [menuOpen, setMenuOpen] = useState(false);
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+// const { isAuthenticated } = useContext(AuthContext);
 
-    const [menuIcon , setMenuIcon] = useState();
+// useEffect(() => {
+//   setIsLoggedIn(isAuthenticated);
+// }, [isAuthenticated]);
 
-    return (
-        <div className={menuIcon ? "navbar active" : "navbar"}  style={{color: isHomePage ? 'white' : 'black' }}>
-          <ul className="navbar-lists">
+//   const toggleMenu = () => {
+//     setMenuOpen(!menuOpen);
+//   };
+
+// const handleLogout = () => {
+//   // Implement your logout functionality here
+//   setIsLoggedIn(false);
+//   // Optionally, redirect to home or login page
+// };
+
+//   return (
+//     <nav className="navbar" style={{ color: isHomePage ? 'white' : 'black' }}>
+//       <div className="navbar-logo">vijay rath</div>
+//       <div className={`navbar-links-container ${menuOpen ? 'open' : ''}`}>
+//         <ul className="navbar-links">
+//           <li>
+//             <NavLink
+//               to="/"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               Home
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink
+//               to="/about"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               About
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink
+//               to="/services"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               Services
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink
+//               to="/contact"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               Contact
+//             </NavLink>
+//           </li>
+
+//           <li>
+//             <NavLink
+//               to="/templates"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               Templates
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink
+//               to="/ProtectedPage"
+//               className="navbar-link"
+//               style={{ color: isHomePage ? 'white' : 'black' }}
+//               onClick={toggleMenu}
+//             >
+//               Secret
+//             </NavLink>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="navbar-actions">
+//         {!isLoggedIn && (
+//           pathName === "/signup" ? (
+//             <NavLink to='/login'>
+//               <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign in</button>
+//             </NavLink>
+//           ) : (
+//             <NavLink to='/signup'>
+//               <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign up</button>
+//             </NavLink>
+//           )
+//         )}
+//         {isLoggedIn && (
+//           <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Logout</button>
+//         )}
+//       </div>
+//       <div className="mobile-navbar-btn">
+//         {menuOpen ? (
+//           <CgClose className="mobile-nav-icon" onClick={toggleMenu} />
+//         ) : (
+//           <CgMenu className="mobile-nav-icon" onClick={toggleMenu} />
+//         )}
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Nav;
+
+import React, { useState, useEffect, useContext } from 'react';
+import { NavLink, useLocation } from "react-router-dom";
+import { CgMenu, CgClose } from "react-icons/cg";
+import '../styles/Nav.css';
+import Swal from "sweetalert2"
+import { AuthContext } from '../context/AuthContext'; // Adjust the path as needed
+
+const Nav = ({ isHomePage }) => {
+  const location = useLocation();
+  const pathName = location.pathname;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated ,logout} = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
+
+  useEffect(() => {
+    setIsLoggedIn(isAuthenticated);
+  }, [isAuthenticated]);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you really want to log out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout();
+        setMenuOpen(false);
+      }
+    });
+  };
+
+  return (
+    <nav className="navbar" style={{ color: isHomePage ? 'white' : 'black' }}>
+      <div className="navbar-logo">vijay rath</div>
+      <div className={`navbar-links-container ${menuOpen ? 'open' : ''}`}>
+        <ul className="navbar-links">
+          <li>
+            <NavLink
+              to="/"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/services"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/templates"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              Templates
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/ProtectedPage"
+              className="navbar-link"
+              style={{ color: isHomePage ? 'white' : 'black' }}
+              onClick={toggleMenu}
+            >
+              Secret
+            </NavLink>
+          </li>
+          {isLoggedIn && (
             <li>
-              <NavLink
-                to="/"
-                className="navbar-link home-link"
-                onClick={() => setMenuIcon(false)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
+              <button 
                 className="navbar-link"
-                onClick={() => setMenuIcon(false)}
+                style={{ color: isHomePage ? 'white' : 'black', background: 'none', border: 'none', cursor: 'pointer' }}
+                onClick={handleLogout}
               >
-                About
-              </NavLink>
+                Logout
+              </button>
             </li>
-            <li>
-              <NavLink
-                to="/products"
-                className="navbar-link"
-                onClick={() => setMenuIcon(false)}
-              >
-                Products
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-                className="navbar-link"
-                onClick={() => setMenuIcon(false)}
-              >
-                Contact
-              </NavLink>
-            </li>
-            {/* <li>
-              <NavLink to="/cart" className="navbar-links cart-trolley--link" >
-                <FiShoppingCart className="cart-trolley" />
-                <span className="cart-total--item"> 10 </span>
-              </NavLink>
-            </li> */}
-          </ul>
-
-          {/* two buttons for open and close the menu*/}
-
-          <div className="mobile-navbar-btn">
-            <CgMenu
-              name="menu-outline"
-              className="mobile-nav-icon"
-              onClick={() => setMenuIcon(true)}
-            />
-            <CgClose
-              name="close-outline"
-              className="mobile-nav-icon close-outline"
-              onClick={() => setMenuIcon(false)}
-            />
-          </div>
-        </div>
-
-    );
+          )}
+        </ul>
+      </div>
+      <div className='signup-hamburger-container'>
+      <div className="navbar-actions">
+        {!isLoggedIn && (
+          pathName === "/signup" ? (
+            <NavLink to='/login'>
+              <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign in</button>
+            </NavLink>
+          ) : (
+            <NavLink to='/signup'>
+              <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign up</button>
+            </NavLink>
+          )
+        )}
+      </div>
+      <div className="mobile-navbar-btn">
+        {menuOpen ? (
+          <CgClose className="mobile-nav-icon" onClick={toggleMenu} />
+        ) : (
+          <CgMenu className="mobile-nav-icon" onClick={toggleMenu} />
+        )}
+      </div>
+      </div>
+     
+    </nav>
+  );
 };
-
-
 
 export default Nav;

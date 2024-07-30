@@ -7,6 +7,7 @@ import EmpoweringSuccess from '../components/EmpoweringSuccess';
 import TextCardContainer from '../components/TextCardContainer';
 import FAQ from '../components/FAQ';
 import PlanCardContainer from '../components/PlanCardContainer';
+import BenificialFor from '../components/BenificialFor';
 
 
 
@@ -77,6 +78,7 @@ const Home = ({ setIsHomePage }) => {
       <HeroSection />
       <Challenges />
       <HomeServices />
+      <BenificialFor />
       <PlanCardContainer />
       <EmpoweringSuccess />
       <FAQ data={FaqData} />
@@ -84,6 +86,7 @@ const Home = ({ setIsHomePage }) => {
       <TextCardContainer headerData={headerData} featuresData={featuresData} />
     </>
   );
+
 }
 
 export default Home;

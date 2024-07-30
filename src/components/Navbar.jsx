@@ -1,26 +1,26 @@
+
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import { CgMenu, CgClose } from "react-icons/cg";
-import Swal from 'sweetalert2';
-import '../styles/Nav.css';
-import { AuthContext } from '../context/AuthContext';
+import '../styles/Navbar.css';
+import Swal from "sweetalert2"
+import { AuthContext } from '../context/AuthContext'; // Adjust the path as needed
 
 const Navbar = ({ isHomePage }) => {
   const location = useLocation();
-  const { isAuthenticated, logout } = useContext(AuthContext);
-
   const pathName = location.pathname;
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated ,logout} = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
 
   useEffect(() => {
     setIsLoggedIn(isAuthenticated);
+    console.log("navbar consiole : isAuthenticated state value is ",isAuthenticated);
   }, [isAuthenticated]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
   const handleLogout = () => {
     Swal.fire({
       title: 'Are you sure?',
@@ -104,18 +104,18 @@ const Navbar = ({ isHomePage }) => {
           </li>
           {isLoggedIn && (
             <li>
-              <NavLink
-                to="#"
-                className="navbar-mobile-logout-button navbar-link"
-                style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}
+              <button 
+                className="navbar-link"
+                style={{ color: isHomePage ? 'white' : 'black', background: 'none', border: 'none', cursor: 'pointer' }}
                 onClick={handleLogout}
               >
                 Logout
-              </NavLink>
+              </button>
             </li>
           )}
         </ul>
       </div>
+      <div className='signup-hamburger-container'>
       <div className="navbar-actions">
         {!isLoggedIn && (
           pathName === "/signup" ? (
@@ -136,23 +136,8 @@ const Navbar = ({ isHomePage }) => {
           <CgMenu className="mobile-nav-icon" onClick={toggleMenu} />
         )}
       </div>
-      {menuOpen && (
-        <div className="mobile-navbar-actions">
-          {!isLoggedIn ? (
-            <NavLink to='/login' onClick={toggleMenu}>
-              <button className="navbar-button" style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}>Sign in</button>
-            </NavLink>
-          ) : (
-            <button
-              className="navbar-button"
-              style={{ color: isHomePage ? 'white' : 'black', borderColor: isHomePage ? 'white' : 'black' }}
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          )}
-        </div>
-      )}
+      </div>
+     
     </nav>
   );
 };

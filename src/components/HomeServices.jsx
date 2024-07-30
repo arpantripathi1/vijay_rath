@@ -54,7 +54,7 @@ function HomeServices() {
           Explore our range of services tailored to address the challenges faced by
           students when it comes to job applications
         </p>
-        <div className="services">
+        <div className="home_services">
           {services.map((service) => (
               <ServiceCard key={service.title} service={service} />
           ))}

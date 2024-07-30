@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import '../styles/PlanCard.css';
+import { AuthContext } from '../context/AuthContext';
 
 const PlanCard = ({ plan, isRecommended }) => {
   const navigate = useNavigate();
+  const {isAuthenticated} = useContext(AuthContext);
+
+
+  // const handleBuyNowClick = () => {
+  //   isAuthenticated ? navigate('/payment', { state: { selectedPlan: plan } }) :
+  //    navigate("/login");
+
+  // };
 
   const handleBuyNowClick = () => {
-    navigate('/payment', { state: { selectedPlan: plan } });
+    if (isAuthenticated) {
+      navigate('/payment', { state: { selectedPlan: plan } });
+    } else {
+      navigate("/login", { state: { redirectTo: '/payment', selectedPlan: plan } });
+    }
   };
 
   return (

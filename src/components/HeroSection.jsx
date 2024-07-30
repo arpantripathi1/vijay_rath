@@ -21,7 +21,7 @@ const HeroSection = () => {
                         </div>
                     ) :   (
                         <div>
-                            <h4>Reach To Companies from Today!</h4>
+                            <h4 style={{color:"yellow"}}>Reachout To Companies from Today!</h4>
                             <button className="hero-button" onClick={()=>navigate("services")}>Get Started</button>
                         </div>
                     )

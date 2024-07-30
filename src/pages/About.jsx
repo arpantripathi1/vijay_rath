@@ -6,7 +6,7 @@ import AboutBanner from '../components/AboutBanner';
 
 
 const About = ({setIsHomePage}) => {
-
+//stay
     useEffect(() => {
         setIsHomePage(false);
         return () => setIsHomePage(true); // Reset when component unmounts
@@ -41,6 +41,7 @@ const About = ({setIsHomePage}) => {
         },
       ];
 
+
     return (
         <div className="about-container">
             <PageHeader text="Empowering Students"/>
@@ -50,6 +51,7 @@ const About = ({setIsHomePage}) => {
             <About4 />
         </div>
     );
+
 }
 
 export default About;

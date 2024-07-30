@@ -8,6 +8,7 @@ import PlanCardContainer from '../components/PlanCardContainer';
 
 const Services = ({ setIsHomePage }) => {
 
+  
   useEffect(() => {
     setIsHomePage(false);
     return () => setIsHomePage(true); // Reset when component unmounts
@@ -44,8 +45,6 @@ const Services = ({ setIsHomePage }) => {
       "float": "left"
     }
   ];
-  
-
 
   // data for text card
   const headerData = [
@@ -57,6 +56,7 @@ const Services = ({ setIsHomePage }) => {
     { heading: 'Effortless Networking', content: 'Connect with recruiters seamlessly by enhancing your job application process with accurate and up-to-date information' },
     { heading: 'Time Optimization', content: 'Save time and energy by easily refreshing your contact list with the click of a button, ensuring efficient job search' },
   ];
+
 
   return (
     <div>

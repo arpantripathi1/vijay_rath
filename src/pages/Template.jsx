@@ -7,6 +7,7 @@ const Template = ({ setIsHomePage }) => {
   const [isToggled, setIsToggled] = useState(false);
 
 
+
   useEffect(() => {
     setIsHomePage(false);
     return () => setIsHomePage(true); // Reset when component unmounts
@@ -58,6 +59,8 @@ const Template = ({ setIsHomePage }) => {
       "description": "Thank you for offering me the [Job Title] position. I'm very excited about the opportunity and the team. I reviewed the compensation package and while I appreciate it, I was hoping to discuss a salary closer to [Your Desired Salary Range] based on my skills and experience in [Relevant Skills] and current market rates for this role. I'm confident I can make a significant contribution to your company and am flexible on other aspects of the offer.",
     },
   ];
+
+
 
   return (
     <div>

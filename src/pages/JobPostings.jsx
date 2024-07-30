@@ -11,15 +11,15 @@ const JobPostings = ({ setIsHomePage }) => {
         return () => setIsHomePage(false); // Reset when component unmounts
     }, [setIsHomePage]);
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/jobs')
-            .then(response => {
-                setJobs(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching jobs:', error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/jobs')
+    //         .then(response => {
+    //             setJobs(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching jobs:', error);
+    //         });
+    // }, []);
     return (
         jobs === undefined ?
             <div className="">

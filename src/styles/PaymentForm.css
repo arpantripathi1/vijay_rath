@@ -1,0 +1,192 @@
+/* PaymentForm.css */
+
+.payment-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.payment-form-container h2 {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.plan-details h3 , .plan-price , .plan-duration {
+  text-align: center;
+  padding: 5px;;
+} 
+
+.plan-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.plan-box h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+}
+
+.plan-details {
+  text-align: left;
+}
+
+.plan-details h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.plan-price {
+  font-size: 18px;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.plan-duration, .plan-description {
+  font-size: 16px;
+  color: #666;
+}
+
+.plan-features {
+  list-style-type: none;
+  padding: 0;
+}
+
+.plan-features li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input[type="text"], 
+.form-group input[type="email"], 
+.form-group input[type="number"],
+.form-group input[type="radio"],
+.form-group .coupon-input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus, 
+.form-group input[type="email"]:focus, 
+.form-group input[type="number"]:focus,
+.form-group input[type="radio"]:focus,
+.form-group .coupon-input:focus {
+  border-color: #ff5722;
+}
+
+.error {
+  font-size: 12px;
+  color: #ff5722;
+  margin-top: 5px;
+}
+
+.radio-group {
+  display: flex;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.radio-group label {
+  font-size: 15px;
+  color: #333;
+}
+
+.coupon-container {
+  display: flex;
+  align-items: left;
+  gap: 10px;
+}
+
+.coupon-input-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.apply-button {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #e64a19;
+}
+
+.submit-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #e64a19;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .payment-form-container {
+      padding: 25px;
+  }
+
+  .plan-box, .payment-form {
+      padding: 15px;
+  }
+
+  .radio-group {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .coupon-container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
