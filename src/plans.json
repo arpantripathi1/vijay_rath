@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Plan A",
+    "real_price": "800",
+    "price": "699",
+    "duration": "6 months",
+    "description": "Get 10 email IDs/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
+    "features": [
+      "Get 10 new email IDs of different active HR's everyday.",
+      "Active HR's contacts for 90 days",
+      "Total 6 months access",
+      "5 unique and extraordinary videos for tips and tricks",
+      "Effective email templates",
+      "Every months 100+ contacts will update",
+      "Call scripts to talk with HR's"
+    ],
+    "limits": [
+      "No updates on Saturdays and Sundays"
+    ]
+  },
+  {
+    "title": "Plan C",
+    "real_price": "1900",
+    "price": "1499",
+    "duration": "6 months",
+    "description": "Get 25 contacts (13 email IDs + 12 phone numbers)/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
+    "features": [
+      "Get 25 new contacts of different active HR's everyday.",
+      "Active HR's contacts for 90 days",
+      "Total 6 months access",
+      "5 unique and extraordinary videos for tips and tricks",
+      "Effective email templates",
+      "Every months 100+ contacts will update",
+      "Call scripts to talk with HR's"
+    ],
+    "limits": [
+      "No updates on Saturdays and Sundays"
+    ]
+  },
+  {
+    "title": "Plan B",
+    "real_price": "1100",
+    "price": "999",
+    "duration": "6 months",
+    "description": "Get 10 numbers/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
+    "features": [
+      "Get 10 new numbers of different active HR's everyday.",
+      "Active HR's contacts for 90 days",
+      "Total 6 months access",
+      "5 unique and extraordinary videos for tips and tricks",
+      "Effective email templates",
+      "Every months 100+ contacts will update",
+      "Call scripts to talk with HR's"
+    ],
+    "limits": [
+      "No updates on Saturdays and Sundays"
+    ]
+  }
+  
+]

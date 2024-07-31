@@ -9,9 +9,9 @@ const About4 = () => {
   ];
 
   const featuresData = [
-    { heading: 'User-Centric', content: 'Our platform is designed with the user in mind, ensuring a seamless and user-friendly experience.' },
-    { heading: 'Efficiency', content: 'We prioritize efficiency in connecting students with recruiters, making the process quick and effective.' },
-    { heading: 'Innovation', content: 'We are constantly innovating to provide students with the latest tools and resources for successful job placements.' },
+    { heading: 'Appropriate Connections', content: "If company hires,all you need is Hr / recruiter / project manager to get a job.You can connect to them in Linkedin but chances of getting reply and scheduling interviews are too low.Your seach is over with us" },
+    { heading: 'Active Contacts', content: 'To get hired,you need to get lots of interviews,that will only scheduled by HR / recruiters,we provide contact of that Hr / recruiter, who hired recently.' },
+    { heading: 'Smart work', content: 'There is a difference between a knowledgable candidate and the person who actually gets job.Not necessary but a Reality,we provide that smartness in our video' },
   ];
 
   return (

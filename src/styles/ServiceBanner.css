@@ -27,11 +27,11 @@
       max-width: 100%; /* Allow content container to fill full width on smaller screens */
     }
   
-    h1 {
+    .service-banner h1 {
       font-size: 1.5rem; /* Adjust heading font size for smaller screens */
     }
   
-    p {
+    .service-banner p {
       font-size: 0.8rem; /* Adjust paragraph font size for smaller screens */
     }
   }

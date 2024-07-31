@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/Footer.css"
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const clickHandler = () => {
+    if(isAuthenticated){
+      navigate("/services");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    }else {
+      navigate("/signup");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+    }
+  }
+
   return (
     <div>
       <header className="cta-section">
         <h1>Ready to Upgrade Your Job Search Experience?</h1>
-        <button className="cta-button">Get Started</button>
+        <button className="cta-button" onClick={clickHandler}>Get Started</button>
+        <div>
+        <div style={{border: "2px solid gray" ,width: "30px" , margin:"5px auto", alignItems :"center",display:"inline-block"}}></div>
+        </div>
+      
         <p className="cta-call">or call us at:</p>
         <p className="cta-phone">09876543267</p>
       </header>
@@ -17,23 +39,21 @@ const Footer = () => {
         </div>
         <div className="footer-section links">
           <h2>Useful Links</h2>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+          <ul>     
+            <li><NavLink to="/"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</NavLink></li>
+            <li><NavLink to="/about" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About</NavLink></li>
+            <li><NavLink to="/services" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Services</NavLink></li>
+            <li><NavLink to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Contact</NavLink></li>
           </ul>
         </div>
-        <div className="footer-section contact">
+        {/* <div className="footer-section contact">
           <h2>Contact Us</h2>
           <address>
             5400 W parmar LN APT427,<br />
             Austin, Texas, US<br />
-            <a href="mailto:sandymr551@gmail.com">sandymr551@gmail.com</a><br />
-            09876543267
+            <NavLink to="mailto:sandymr551@gmail.com">sandymr551@gmail.com</NavLink><br />
           </address>
-        </div>
+        </div> */}
       </footer>
     </div>
 

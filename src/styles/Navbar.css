@@ -1,48 +1,100 @@
-/* src/Navbar.css */
+
 .navbar {
-    min-width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 2rem ;
-    position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  /* background-color: #333; */
 }
 
 .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.navbar-links-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-link  {
-    text-decoration: none;
-    font-size: 1rem;
+.navbar-link {
+  margin-left: 5%;
+  text-decoration: none;
 }
- 
-/* .navbar-link .active {
-    color: #007bff;
-    
-}*/
+
+.signup-hamburger-container{
+  display: flex;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
 
 .navbar-button {
-    padding: 0.5rem 1rem;
-    opacity: 1;
-    color: rgb(252, 248, 248);
-    background-color: transparent;
-    border: 3px solid white;
-    border-radius: 4px;
-    cursor: pointer;
+  background: none;
+  border: 1px solid;
+  padding: 0.5rem 1rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  color: inherit;
 }
 
-.navbar-button:hover {
-    background-color: #0056b3;
+.mobile-navbar-btn {
+  display: none;
+  cursor: pointer;
 }
 
-.navbar-link:hover {
-    color: #6a94c1;
+.mobile-nav-icon {
+  font-size: 2rem;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .navbar-links-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: vh;
+    width: 90%;
+    opacity: 0.95;
+    background-color: rgb(119, 122, 124);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 1rem;
+  }
+
+  .navbar-links-container.open {
+    display: flex;
+  }
+
+  .signup-hamburger-container{
+    width: 29%;
+    justify-content: space-between;
+  }
+  
+
+  .navbar-link {
+    margin: 1.5rem 0;
+    font-weight: 700;
+  }
+
+  .mobile-navbar-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 560px){
+  .signup-hamburger-container{
+    width: 40%;
+  }
 }

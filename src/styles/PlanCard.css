@@ -1,0 +1,151 @@
+ /* src/styles/PlanCard.css */
+.plans-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 90px auto;
+}
+
+.plan-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 26%;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plan-card.recommended {
+  border: 2px solid #000;
+}
+
+.recommended-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card:nth-child(2) {
+  margin-top: -35px;
+}
+
+.plan-real-price span{
+  text-decoration-line: line-through;
+  font-size: 26px;
+}
+
+.plan-price {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.plan-duration {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.plan-description {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.plan-features,
+.plan-limits {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plan-features li,
+.plan-limits li {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0;
+  width: 80%;
+}
+
+.plan-features li .icon-true,
+.plan-limits li .icon-false {
+  flex-shrink: 0;
+}
+
+.icon-true {
+  color: green;
+  margin-right: 10px;
+}
+
+.icon-false {
+  color: red;
+  margin-right: 10px;
+}
+
+.buy-button {
+  color: #000;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  opacity: 1;
+  font-weight: bold;
+  background-color: transparent;
+  border: 3px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .plans-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .plan-card:nth-child(2) {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .plan-card {
+    width: 26%;
+  }
+}
+
+@media (max-width:500px) {
+
+  .plan-card , .plan-card:hover {
+    transform: none;
+  }
+  
+}

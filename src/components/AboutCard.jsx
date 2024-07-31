@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import '../styles/AboutCard.css';  // Importing the CSS file
 
 const AboutCard = ({ heading,imageUrl, text, floatSide }) => {
+
+
+
   return (
     <div className={`image-text-container ${floatSide}`}>
       <div className="image">
