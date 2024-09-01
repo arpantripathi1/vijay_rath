@@ -15,7 +15,6 @@ import Template from './pages/Template';
 import ProtectedPage from './pages/ProtectedPage';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
-import { AuthProvider } from './context/AuthContext';
 
 import PaymentForm from './pages/PaymentForm';
 import ForgotPassword from './pages/ForgotPassword';
@@ -34,9 +33,7 @@ function App() {
   return (
     <BrowserRouter>
     <ToastContainer />
-      <AuthProvider>
         <Navbar isHomePage={isHomePage} />
-        {/* <Nav isHomePage={isHomePage} /> */}
         <ScrollToTop />
           <Routes>
             <Route exact path="/" element={<Home setIsHomePage={setIsHomePage} />} />
@@ -55,8 +52,6 @@ function App() {
 
           </Routes>
         <Footer />
-
-      </AuthProvider>
     </BrowserRouter>
   );
 }

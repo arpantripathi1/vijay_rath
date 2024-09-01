@@ -1,60 +1,62 @@
 [
   {
     "title": "Plan A",
-    "real_price": "800",
-    "price": "699",
-    "duration": "6 months",
-    "description": "Get 10 email IDs/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
+    "type": "basic",
+    "real_price": "100",
+    "price": "80",
+    "duration": "3 months",
+    "description": "This plan offers daily access to selected resources for 3 months.",
     "features": [
-      "Get 10 new email IDs of different active HR's everyday.",
-      "Active HR's contacts for 90 days",
-      "Total 6 months access",
-      "5 unique and extraordinary videos for tips and tricks",
-      "Effective email templates",
-      "Every months 100+ contacts will update",
-      "Call scripts to talk with HR's"
+      "Daily access to resources.",
+      "Includes basic templates.",
+      "Guidelines for effective communication.",
+      "Limited to 60 days of access over 3 months.",
+      "One access per day."
     ],
     "limits": [
-      "No updates on Saturdays and Sundays"
-    ]
-  },
-  {
-    "title": "Plan C",
-    "real_price": "1900",
-    "price": "1499",
-    "duration": "6 months",
-    "description": "Get 25 contacts (13 email IDs + 12 phone numbers)/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
-    "features": [
-      "Get 25 new contacts of different active HR's everyday.",
-      "Active HR's contacts for 90 days",
-      "Total 6 months access",
-      "5 unique and extraordinary videos for tips and tricks",
-      "Effective email templates",
-      "Every months 100+ contacts will update",
-      "Call scripts to talk with HR's"
+      "No updates during weekends."
     ],
-    "limits": [
-      "No updates on Saturdays and Sundays"
-    ]
+    "note": "Access to over 500 resources for future use."
   },
+  
   {
     "title": "Plan B",
-    "real_price": "1100",
-    "price": "999",
+    "type": "premium",
+    "real_price": "250",
+    "price": "200",
     "duration": "6 months",
-    "description": "Get 10 numbers/day for 90 days and 3 months extra access (except Saturdays and Sundays)",
+    "description": "Gain daily access to a comprehensive set of tools for 6 months.",
     "features": [
-      "Get 10 new numbers of different active HR's everyday.",
-      "Active HR's contacts for 90 days",
-      "Total 6 months access",
-      "5 unique and extraordinary videos for tips and tricks",
-      "Effective email templates",
-      "Every months 100+ contacts will update",
-      "Call scripts to talk with HR's"
+      "Daily access to advanced tools.",
+      "Includes premium templates.",
+      "Detailed guides for communication.",
+      "Limited to 120 days of access over 6 months.",
+      "One access per day."
     ],
     "limits": [
-      "No updates on Saturdays and Sundays"
-    ]
-  }
+      "No updates during weekends."
+    ],
+    "note": "Access to over 1000 resources for future use."
+  },
   
+  {
+    "title": "Plan C",
+    "type": "standard",
+    "real_price": "150",
+    "price": "120",
+    "duration": "4 months",
+    "description": "Provides daily access to selected content for 4 months.",
+    "features": [
+      "Daily access to content.",
+      "Includes standard templates.",
+      "Guides for communication.",
+      "Limited to 80 days of access over 4 months.",
+      "One access per day."
+    ],
+    "limits": [
+      "No updates during weekends."
+    ],
+    "note": "Access to over 700 resources for future use."
+  }
 ]
+

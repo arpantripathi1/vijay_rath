@@ -5,7 +5,7 @@ import '../styles/HeroSection.css';
 
 const HeroSection = () => {
     const navigate = useNavigate();
-    const { isAuthenticated } = useContext(AuthContext);
+    // const { isAuthenticated } = useContext(AuthContext);
 
 
     return (
@@ -14,7 +14,8 @@ const HeroSection = () => {
                 <p className='hero-heading'>Stand Out from the Crowd: Connect with Real & Active Recruiters Directly</p>
                 <p>"Feeling Stuck In This Competative Journey? <br/>Connect. Get Seen. Get Interviewed. Land Your Job Faster"</p>
                 {
-                    !isAuthenticated ? (
+                    // !isAuthenticated ? (
+                        !true ? (
                         <div>
                             <h4>Sign up Today!</h4>
                             <button className="hero-button" onClick={()=>navigate("signup")}>Get Started</button>
